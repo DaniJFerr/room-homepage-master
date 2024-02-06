@@ -13,7 +13,7 @@ if (process.env.NODE_ENV === "production") {
 
 module.exports = {
   entry: {
-    main:"./src/template.html",
+    main:"./src/app.js",
   },
 
   mode: mode,
@@ -26,7 +26,8 @@ module.exports = {
     minimizer: [
       new OptimizeCssAssetsPlugin(),
       new TerserPlugin(),
-    ]
+    ],
+    minimize: true,
   },
   plugins: [
     new MiniCssExtractPlugin({ filename: "[name].[contenthash].bundle.css"}),
