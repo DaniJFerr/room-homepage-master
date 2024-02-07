@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href ="https://fonts.google.com/specimen/League+Spartan" />
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;600;700&display=swap" rel="stylesheet">
     <!-- displays site properly based on user's device -->
     <title>Frontend Mentor | Room homepage</title>
     <!-- For example: -->
@@ -12,7 +12,6 @@
   <body>
     <div class="container">
       <div role="banner" class="main-header">
-        <div class="div">
             <header class="header-columns">
               <div role="navigation" class="column">
                     <nav class="navbar" aria-label="Main navigation">
@@ -40,11 +39,11 @@
                   </div>
             </header>
 
-          <main class="main-content">
+          <!-- <main class="main-content"> -->
             <section aria-label="shopTitle" class="shop-content">
               <div class="text-content">
                 <h1 id="shopTitle" class="shop-title">Discover innovative ways to decorate</h1>
-                <p class="shop-content">
+                <p class="p-shop-content">
                   We provide unmatched quality, comfort, and style for property
                   owners across the country. Our experts combine form and
                   function in bringing your vision to life. Create a room in
@@ -53,34 +52,32 @@
                 </p>
                 <div class="shop-button">
                   <div class="div-8" aria-label="Shop now">SHOP NOW</div>
+                  <button class="button-arrow-img"  role="Arrow pointing right">
                   <img
                     loading="lazy"
-                    src="../assets/icon-arrow.svg"
-                    class="button-arrow-img"
-                    alt="Arrow pointing right"
+                    src="../assets/icon-arrow.svg"                   
                   />
+                 </button>
                 </div>
               </div>
               <div class="button-select">
-                <img
+                <button  class="icon-angle-left" role="button pointing left">
+                  <img
                   loading="lazy"
                   src="../assets/icon-angle-left.svg"
-                  class="icon-angle-left"
-                  alt="button pointing left"
                 />
+                </button>
+                <button class="icon-angle-right" role="button pointing right">
                 <img
                   loading="lazy"
                   src="../assets/icon-angle-right.svg"
-                  class="icon-angle-right"
-                  alt="button pointing right"
                 />
+                </button>
               </div>
             </section>
-          </main>
-        </div>
+          <!-- </main> -->
       </div>
       <aside class="botton-section">
-        <div class="div">
           <div class="column-5">
             <img
               loading="lazy"
@@ -111,7 +108,6 @@
               alt="image about light"
             />
           </div>
-        </div>
       </aside>
     </div>
   </body>

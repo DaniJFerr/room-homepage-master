@@ -7,8 +7,13 @@
   line-height: normal;
 }
 
+.container{
+  width: 100%;
+  height: 100%;
+}
 
 .header-columns {
+  width: 60%;
   overflow: hidden;
   flex-grow: 1;
   background-image: url(../assets/[FREE\ -\ HDconvert.com]\ desktop-image-hero-1.png);
@@ -19,13 +24,8 @@
   padding: 50px 72px;
 }
 
-.main-container {
-  gap: 20px;
-  display: flex;
-}
-
 .column {
-@include align-columns;
+  @include align-columns;
   width: 362px;
   margin-left: 0px;
 }
@@ -50,7 +50,7 @@
 .navbar-list {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 30px;
 }
 
 .navbar-item {
@@ -70,9 +70,7 @@
 
 .main-header {
   width: 100%;
-}
-
-.div {
+  height: 100%;
   display: flex;
 }
 
@@ -85,7 +83,7 @@
 }
 
 .column-3 {
-@include align-columns;
+  @include align-columns;
   width: 83%;
   margin-left: 20px;
 }
@@ -111,26 +109,22 @@
   margin: auto 0;
 }
 
-.main-content {
-@include align-columns;
-  width: 42%;
-}
-
 .shop-content {
   background-color: variables.$Primary-White;
+  justify-content: space-between;
   display: flex;
-  flex-grow: 1;
   padding-top: 50px;
   flex-direction: column;
   color: variables.$Primary-Black;
   font-weight: 500;
-  width: 100%;
+  width: 40%;
+  height: 100%;
 }
 
 .text-content {
   align-self: center;
   display: flex;
-  margin-top: 72px;
+  margin-top: 100px;
   width: 400px;
   max-width: 100%;
   flex-direction: column;
@@ -147,7 +141,7 @@
   font-family: variables.$Font-Family;
 }
 
-.shop-content {
+.p-shop-content {
   color: variables.$Primary-Dark-Gray;
   letter-spacing: -0.33px;
   font-size: 16px;
@@ -165,6 +159,7 @@
   letter-spacing: 12.5px;
   line-height: 107%;
   margin: 32px 0 0 0px;
+  padding: 0;
 }
 
 .div-8 {
@@ -173,39 +168,76 @@
   flex-basis: auto;
 }
 
-.button-arrow-img {
-  aspect-ratio: 3.33;
+.button-arrow-img img{
+  overflow: hidden;
+  cursor: pointer;
   object-fit: auto;
   object-position: center;
   width: 40px;
+  height: 12px;
+  padding: 0;
+  // transform: translateX(0px);
+  transition: width .5s ease-in-out; 
+
+  &:hover { 
+    // transform: translateX(10px);
+    width: 60px;
+    height: 12px;
+  }
 }
 
 .button-select {
   display: flex;
-  margin-top: 75px;
-  padding: 0;
   align-items: center;
   justify-content: space-around;
   align-self: flex-start;
   background-color: variables.$Primary-Black;
-  padding: 30px 0px;
+  overflow: hidden;
+  padding: 30px 0;
   width: 25%;
 }
+
+.icon-angle-right{
+  background-color: #{variables.$Primary-Black};
+  padding: 0;
+  margin: 0;
+  border-style: none;
+  transform: translateX(0px);
+  transition: transform .5s ease-in-out; 
+
+  &:hover { 
+    transform: translateX(7px); 
+  }
+}
+
+.icon-angle-left {
+  background-color: #{variables.$Primary-Black};
+  border-style: none;
+  transform: translateX(5px);
+  transition: transform .5s ease-in-out; 
+
+  &:hover { 
+    transform: translateX(-3px); 
+  }
+}
+
 
 .icon-angle-left,
 .icon-angle-right {
   object-fit: auto;
   object-position: center;
   max-width: 100%;
+  height: 24px;
   cursor: pointer;
 }
 
 .botton-section {
   width: 100%;
+  display: flex
 }
 
 .column-5 {
-@include align-columns;
+  @include align-columns;
   width: 30%;
   margin-left: 0px;
 }
@@ -220,7 +252,7 @@
 }
 
 .column-6 {
-@include align-columns;
+  @include align-columns;
   width: 40%;
 }
 
@@ -241,6 +273,7 @@
   line-height: 137.5%;
   letter-spacing: 6.67px;
   margin-top: 14px;
+  font-size: 16px;
 }
 
 .p-content {
@@ -253,8 +286,8 @@
 }
 
 .column-7 {
-@include align-columns;
-  width: 32%;
+  @include align-columns;
+  width: 30%;
 }
 
 .image-about-light {
@@ -263,6 +296,39 @@
   object-position: center;
   width: 100%;
   flex-grow: 1;
+}
+
+@keyframes buttonRightAnim {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(5px);
+  }
+}
+
+@keyframes buttonLeftAnim {
+  0% {
+    transform: translateX(0px);
+  }
+
+  100% {
+    transform: translateX(-5px);
+  }
+}
+
+@media (max-width: 400px) {
+
+  .navbar-list{
+    visibility: hidden;
+    position: absolute;
+  }
+
+  .navbar{
+   align-self: center;
+  }
+
 }
 
 @media (max-width: 640px) {
@@ -287,9 +353,12 @@
   }
 }
 
-
 @media (max-width: 991px) {
   .header-columns {
+    width: 100%;
+    background-image: url(../assets/mobile-image-hero-1.jpg);
+    background-position: center;
+    height: 360px;
     max-width: 100%;
     padding: 0 20px;
   }
@@ -299,7 +368,7 @@
     align-items: stretch;
     gap: 0px;
   }
-  
+
   .main-content,
   .column,
   .column-2,
@@ -311,10 +380,27 @@
   }
 
   .img,
-  .text-content,
   .icon-angle-left,
-  .icon-angle-right{
-    margin-top: 40px;
+  .icon-angle-right {
+    margin: 0px;
+  }
+
+  .text-content {
+    overflow: hidden;
+    margin: 0;
+    padding: 60px 40px;
+    width: auto;
+  }
+
+  .shop-content {
+    padding: 0;
+    width: 100%;
+    height: auto;
+  }
+
+  .p-shop-content {
+    padding: 0;
+    margin-top: 10px;
   }
 
   .navbar {
@@ -327,20 +413,25 @@
   .about-title,
   .about-content,
   .image-about-light,
-  .botton-section{
+  .botton-section {
     max-width: 100%;
   }
 
-  .div {
+  .botton-section,
+  .main-header {
     flex-direction: column;
     align-items: stretch;
     gap: 0px;
+    height: auto;
   }
 
-  .header-columns,
-  .about-content {
+  .header-columns {
     max-width: 100%;
     padding: 0 20px;
+  }
+
+  .about-content {
+    padding: 40px;
   }
 
   .navbar {
@@ -357,6 +448,13 @@
     margin-left: 10px;
   }
 
+  .button-select {
+    width: 112px;
+    position: absolute;
+    margin-top: -65px;
+    padding: 20px 0;
+    align-items: center;
+    align-self: flex-end;
+  }
 
-  
 }
