@@ -1,5 +1,6 @@
 @use './scss/reset';
 @use './scss/variables';
+@import "./scss/hamburgers.scss";
 
 @mixin align-columns {
   display: flex;
@@ -298,40 +299,12 @@
   flex-grow: 1;
 }
 
-@keyframes buttonRightAnim {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(5px);
-  }
-}
-
-@keyframes buttonLeftAnim {
-  0% {
-    transform: translateX(0px);
-  }
-
-  100% {
-    transform: translateX(-5px);
-  }
-}
-
-@media (max-width: 400px) {
-
-  .navbar-list{
-    visibility: hidden;
-    position: absolute;
-  }
-
-  .navbar{
-   align-self: center;
-  }
-
-}
+.not-visible{
+  visibility: hidden;
+ }
 
 @media (max-width: 640px) {
+  
   .header-columns {
     display: flex;
     flex-direction: column;
@@ -354,6 +327,32 @@
 }
 
 @media (max-width: 991px) {
+
+  .overlay {
+    position: fixed;
+    margin: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); // Adjust color and opacity as needed
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: -1; // Put it below all other content by default
+  }
+  
+  .overlay-visible {
+    visibility: visible;
+    margin: 0;
+    opacity: 1;
+    z-index: 0; // Put the overlay above all content but below the navbar
+  }
+  
+  .hamburger{
+    margin-top: 35px;
+    z-index: 2;
+  }
+
   .header-columns {
     width: 100%;
     background-image: url(../assets/mobile-image-hero-1.jpg);
@@ -404,8 +403,41 @@
   }
 
   .navbar {
-    margin-top: 40px;
+    justify-content: center;
     white-space: initial;
+    align-items: baseline;
+    margin: 0;
+  }
+
+  .navbar-list {
+    position: absolute;
+    display: flex; // Added for justify-content and align-items to work properly
+    justify-content: center;
+    align-items: center;
+    background-color: variables.$Primary-White;
+    color: variables.$Primary-Black;
+    z-index: 1;
+    width: 100%;
+    height: 120px;
+    box-shadow: 0 -2px 10px variables.$Primary-Black;
+    transform: translateY(0px);
+    top: -120px;
+    margin: 0;
+    transition: transform .3s ease-in-out ;
+
+    &.Animated {
+      transform: translateY(120px); // Assuming you want it to slide out, change value accordingly
+    }
+  
+    // &::before, &::after {
+    //   content: ''; // Define content property if using pseudo-elements
+    //   // Style pseudo-elements as needed
+    // }
+  }
+
+  .logo-img{
+    margin-top: 60px;
+    position: absolute;
   }
 
   .main-header,
@@ -432,11 +464,6 @@
 
   .about-content {
     padding: 40px;
-  }
-
-  .navbar {
-    margin-top: 40px;
-    white-space: initial;
   }
 
   .shop-title {
