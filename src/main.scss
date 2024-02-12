@@ -1,0 +1,487 @@
+@use './scss/reset';
+@use './scss/variables';
+@import "./scss/hamburgers.scss";
+
+@mixin align-columns {
+  display: flex;
+  flex-direction: column;
+  line-height: normal;
+}
+
+.container{
+  width: 100%;
+  height: 100%;
+}
+
+.header-columns {
+  width: 60%;
+  overflow: hidden;
+  flex-grow: 1;
+  background-image: url(../assets/[FREE\ -\ HDconvert.com]\ desktop-image-hero-1.png);
+  image-resolution: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 50px 72px;
+}
+
+.column {
+  @include align-columns;
+  width: 362px;
+  margin-left: 0px;
+}
+
+.logo-img {
+  width: 62px;
+  height: 13px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  font-size: 16px;
+  color: variables.$Primary-White;
+  font-weight: 600;
+  white-space: nowrap;
+  letter-spacing: -0.67px;
+  margin: 17px auto 0 -4px;
+}
+
+.navbar-list {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.navbar-item {
+  font-family: variables.$Font-Family;
+}
+
+.navbar-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  background-color: variables.$Primary-White;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-header {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.img {
+  aspect-ratio: 2.51;
+  object-fit: auto;
+  object-position: center;
+  width: 62px;
+  margin-top: 14px;
+}
+
+.column-3 {
+  @include align-columns;
+  width: 83%;
+  margin-left: 20px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  font-size: 16px;
+  color: variables.$Primary-White;
+  font-weight: 600;
+  white-space: nowrap;
+  letter-spacing: -0.67px;
+  margin: 0;
+}
+
+.div-2,
+.div-3,
+.div-4,
+.div-5 {
+  font-family: variables.$Font-Family;
+  margin: auto 0;
+}
+
+.shop-content {
+  background-color: variables.$Primary-White;
+  justify-content: space-between;
+  display: flex;
+  padding-top: 50px;
+  flex-direction: column;
+  color: variables.$Primary-Black;
+  font-weight: 500;
+  width: 40%;
+  height: 100%;
+}
+
+.text-content {
+  align-self: center;
+  display: flex;
+  margin-top: 100px;
+  width: 400px;
+  max-width: 100%;
+  flex-direction: column;
+  padding: 0 20px;
+}
+
+.shop-title {
+  letter-spacing: -2px;
+  line-height: normal;
+  color: variables.$Primary-Black;
+  font-size: 45px;
+  font-weight: 600;
+  margin: 0;
+  font-family: variables.$Font-Family;
+}
+
+.p-shop-content {
+  color: variables.$Primary-Dark-Gray;
+  letter-spacing: -0.33px;
+  font-size: 16px;
+  font-family: variables.$Font-Family;
+  margin: 0;
+}
+
+.shop-button {
+  align-self: start;
+  display: flex;
+  padding-right: 9px;
+  justify-content: space-between;
+  gap: 20px;
+  font-size: 15px;
+  letter-spacing: 12.5px;
+  line-height: 107%;
+  margin: 32px 0 0 0px;
+  padding: 0;
+}
+
+.div-8 {
+  font-family: variables.$Font-Family;
+  flex-grow: 1;
+  flex-basis: auto;
+}
+
+.button-arrow-img img{
+  overflow: hidden;
+  cursor: pointer;
+  object-fit: auto;
+  object-position: center;
+  width: 40px;
+  height: 12px;
+  padding: 0;
+  // transform: translateX(0px);
+  transition: width .5s ease-in-out; 
+
+  &:hover { 
+    // transform: translateX(10px);
+    width: 60px;
+    height: 12px;
+  }
+}
+
+.button-select {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  align-self: flex-start;
+  background-color: variables.$Primary-Black;
+  overflow: hidden;
+  padding: 30px 0;
+  width: 25%;
+}
+
+.icon-angle-right{
+  background-color: #{variables.$Primary-Black};
+  padding: 0;
+  margin: 0;
+  border-style: none;
+  transform: translateX(0px);
+  transition: transform .5s ease-in-out; 
+
+  &:hover { 
+    transform: translateX(7px); 
+  }
+}
+
+.icon-angle-left {
+  background-color: #{variables.$Primary-Black};
+  border-style: none;
+  transform: translateX(5px);
+  transition: transform .5s ease-in-out; 
+
+  &:hover { 
+    transform: translateX(-3px); 
+  }
+}
+
+
+.icon-angle-left,
+.icon-angle-right {
+  object-fit: auto;
+  object-position: center;
+  max-width: 100%;
+  height: 24px;
+  cursor: pointer;
+}
+
+.botton-section {
+  width: 100%;
+  display: flex
+}
+
+.column-5 {
+  @include align-columns;
+  width: 30%;
+  margin-left: 0px;
+}
+
+.image-about-dark {
+  aspect-ratio: 1.59;
+  object-fit: auto;
+  object-position: center;
+  width: 100%;
+  flex-grow: 1;
+  align-self: stretch;
+}
+
+.column-6 {
+  @include align-columns;
+  width: 40%;
+}
+
+.about-content {
+  background-color: variables.$Primary-White;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  font-size: 16px;
+  padding: 50px 48px;
+}
+
+.about-title {
+  color: variables.$Primary-Black;
+  text-align: justify;
+  font-family: variables.$Font-Family;
+  font-weight: 700;
+  line-height: 137.5%;
+  letter-spacing: 6.67px;
+  margin-top: 14px;
+  font-size: 16px;
+}
+
+.p-content {
+  color: variables.$Primary-Dark-Gray;
+  font-family: variables.$Font-Family;
+  font-weight: 500;
+  line-height: 22px;
+  letter-spacing: -0.33px;
+  margin-top: 27px;
+}
+
+.column-7 {
+  @include align-columns;
+  width: 30%;
+}
+
+.image-about-light {
+  aspect-ratio: 1.67;
+  object-fit: auto;
+  object-position: center;
+  width: 100%;
+  flex-grow: 1;
+}
+
+.not-visible{
+  visibility: hidden;
+ }
+
+@media (max-width: 640px) {
+  
+  .header-columns {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    flex-grow: 1;
+    padding-bottom: 129px;
+  }
+
+  .contact-link {
+    margin-right: 1px;
+  }
+
+  .img {
+    margin: -2px auto 0;
+  }
+
+  .div-5 {
+    margin-right: 1px;
+  }
+}
+
+@media (max-width: 991px) {
+
+  .overlay {
+    position: fixed;
+    margin: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); // Adjust color and opacity as needed
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: -1; // Put it below all other content by default
+  }
+  
+  .overlay-visible {
+    visibility: visible;
+    margin: 0;
+    opacity: 1;
+    z-index: 0; // Put the overlay above all content but below the navbar
+  }
+  
+  .hamburger{
+    margin-top: 35px;
+    z-index: 2;
+  }
+
+  .header-columns {
+    width: 100%;
+    background-image: url(../assets/mobile-image-hero-1.jpg);
+    background-position: center;
+    height: 360px;
+    max-width: 100%;
+    padding: 0 20px;
+  }
+
+  .main-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0px;
+  }
+
+  .main-content,
+  .column,
+  .column-2,
+  .column-3,
+  .column-5,
+  .column-6,
+  .column-7 {
+    width: 100%;
+  }
+
+  .img,
+  .icon-angle-left,
+  .icon-angle-right {
+    margin: 0px;
+  }
+
+  .text-content {
+    overflow: hidden;
+    margin: 0;
+    padding: 60px 40px;
+    width: auto;
+  }
+
+  .shop-content {
+    padding: 0;
+    width: 100%;
+    height: auto;
+  }
+
+  .p-shop-content {
+    padding: 0;
+    margin-top: 10px;
+  }
+
+  .navbar {
+    justify-content: center;
+    white-space: initial;
+    align-items: baseline;
+    margin: 0;
+  }
+
+  .navbar-list {
+    position: absolute;
+    display: flex; // Added for justify-content and align-items to work properly
+    justify-content: center;
+    align-items: center;
+    background-color: variables.$Primary-White;
+    color: variables.$Primary-Black;
+    z-index: 1;
+    width: 100%;
+    height: 120px;
+    box-shadow: 0 -2px 10px variables.$Primary-Black;
+    transform: translateY(0px);
+    top: -120px;
+    margin: 0;
+    transition: transform .3s ease-in-out ;
+
+    &.Animated {
+      transform: translateY(120px); // Assuming you want it to slide out, change value accordingly
+    }
+  
+    // &::before, &::after {
+    //   content: ''; // Define content property if using pseudo-elements
+    //   // Style pseudo-elements as needed
+    // }
+  }
+
+  .logo-img{
+    margin-top: 60px;
+    position: absolute;
+  }
+
+  .main-header,
+  .shop-content,
+  .about-title,
+  .about-content,
+  .image-about-light,
+  .botton-section {
+    max-width: 100%;
+  }
+
+  .botton-section,
+  .main-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0px;
+    height: auto;
+  }
+
+  .header-columns {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+
+  .about-content {
+    padding: 40px;
+  }
+
+  .shop-title {
+    max-width: 100%;
+    font-size: 40px;
+  }
+
+  .shop-button {
+    margin-left: 10px;
+  }
+
+  .button-select {
+    width: 112px;
+    position: absolute;
+    margin-top: -65px;
+    padding: 20px 0;
+    align-items: center;
+    align-self: flex-end;
+  }
+
+}
