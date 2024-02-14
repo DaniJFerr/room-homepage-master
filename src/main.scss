@@ -13,22 +13,23 @@
   height: 100%;
 }
 
-.header-columns {
-  width: 60%;
+.hero-image{
+ width: 60%;
+  & img{
+    width: 100%;
+  height: 100%;
   overflow: hidden;
-  flex-grow: 1;
-  background-image: url(../assets/[FREE\ -\ HDconvert.com]\ desktop-image-hero-1.png);
-  image-resolution: 100%;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  padding: 50px 72px;
+  }
 }
 
-.column {
+.nav-column {
   @include align-columns;
+  position: absolute;
   width: 362px;
-  margin-left: 0px;
+  margin: 50px;
 }
 
 .logo-img {
@@ -222,7 +223,6 @@
   }
 }
 
-
 .icon-angle-left,
 .icon-angle-right {
   object-fit: auto;
@@ -248,7 +248,6 @@
   object-fit: auto;
   object-position: center;
   width: 100%;
-  flex-grow: 1;
   align-self: stretch;
 }
 
@@ -296,7 +295,6 @@
   object-fit: auto;
   object-position: center;
   width: 100%;
-  flex-grow: 1;
 }
 
 .not-visible{
@@ -305,7 +303,7 @@
 
 @media (max-width: 640px) {
   
-  .header-columns {
+  .hero-image {
     display: flex;
     flex-direction: column;
     height: auto;
@@ -347,19 +345,22 @@
     opacity: 1;
     z-index: 0; // Put the overlay above all content but below the navbar
   }
+
+  .nav-column{
+    width: 100%;
+    margin: 0;
+  }
   
   .hamburger{
     margin-top: 35px;
     z-index: 2;
   }
 
-  .header-columns {
+  .hero-image {
     width: 100%;
-    background-image: url(../assets/mobile-image-hero-1.jpg);
     background-position: center;
-    height: 360px;
     max-width: 100%;
-    padding: 0 20px;
+    padding: 0;
   }
 
   .main-container {
