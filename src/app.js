@@ -1,6 +1,7 @@
 import './main.scss';
-import Gallery from './utils/gallery';
-import Hamburger from './utils/hamburger';
+import 'animate.css';
+import Gallery from './utils/Gallery.mjs';
+import Hamburger from './utils/Hamburger.mjs';
 
 
 new Hamburger();

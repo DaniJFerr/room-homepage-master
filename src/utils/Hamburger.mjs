@@ -3,7 +3,7 @@ import $ from "jquery";
 let hamburger = $('.hamburger');
 let navbarList = $('.navbar-list');
 let overlay = $('.overlay');
-
+let navbar = $('.nav-column');
 export default function Hamburger(){
 
 function updateNavbarVisibility() {
@@ -14,12 +14,20 @@ function updateNavbarVisibility() {
     }
 }
 
+  const handleScroll = () => {
+    if (window.scrollY > 2) {
+      navbar.addClass('navScroll');
+    } else {
+      navbar.removeClass('navScroll');
+    }
+  };
+
 updateNavbarVisibility();
 
 let debounceTimeout;
 window.addEventListener('resize', () => {
     clearTimeout(debounceTimeout);
-    debounceTimeout = setTimeout(updateNavbarVisibility, 100);
+    debounceTimeout = setTimeout(updateNavbarVisibility, 1);
 });
 
 function toggleNavbar() {
@@ -53,5 +61,7 @@ function toggleOverlay(isToggleActive) {
 hamburger.on('click', function(){
    createOverlay() , toggleNavbar()
 });
+
+window.addEventListener('scroll',(handleScroll));
 
 }
