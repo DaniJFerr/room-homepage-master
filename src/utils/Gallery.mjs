@@ -10,7 +10,6 @@ let textContent = [];
 
 export default function Gallery() {
 
-
     function createGallery(data) {
         galleryContainer.empty();
         data.forEach((item, index) => {
@@ -26,7 +25,6 @@ export default function Gallery() {
     function displayImage(index) {
         let images = galleryContainer.find('img');
             images.hide().eq(index).show(); 
-    
     }
     
 function generateContentHtml(item, index) {
@@ -53,33 +51,24 @@ function generateContentHtml(item, index) {
             </div>`);
 }
 
-    function clearContent() {
-        contentContainer.empty();
-    }
 
     function displayContent(index) {
-            clearContent();
+        contentContainer.empty();
             if (index in textContent) {
             const newContent = generateContentHtml(textContent[index], index);
             contentContainer.append(newContent);
         }
     }
 
-    function changeContent(step) {
+    function changeGallery(step) {
         currentIndex = (currentIndex + step + textContent.length) % textContent.length;
+        displayImage(currentIndex);
         displayContent(currentIndex);
     }
-
-    function changeImage(step) {
-        currentIndex = (currentIndex + step + imageData.length) % imageData.length;
-        displayImage(currentIndex);
-    }
-
     
-    $(document).on("click", ".button-select", function(event) {
-        const direction = $(event.target).closest('button').hasClass('icon-angle-left') ? -1 : 1;
-        changeImage(direction);
-        changeContent(direction);
+    $(document).on("click", ".icon-angle-left, .icon-angle-right", function(event) {
+        const direction = $(this).hasClass('icon-angle-left') ? -1 : 1;
+        changeGallery(direction);
     });
 
     async function fetchData() {
@@ -99,10 +88,10 @@ function generateContentHtml(item, index) {
                 icons: item.icons
             }));
             createGallery(imageData);
+            displayContent(currentIndex);
             $(window).on('resize',function(){
                 createGallery(imageData);
             });  
-            displayContent(currentIndex); // Display initial content
         } catch (error) {
             console.error('Error fetching data:', error);
         }
