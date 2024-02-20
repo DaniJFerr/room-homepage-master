@@ -57,13 +57,13 @@ module.exports = {
         },
       },
       {
-        test: /\.scss$/,
+        test: /\.s?[ac]ss$/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
           },
           "css-loader", //2. Turns css into commonjs
-          "sass-loader" //1. Turns sass into css
+          "sass-loader",
         ]
       },
       {
@@ -99,6 +99,6 @@ module.exports = {
     compress: true,
     port: 3000,
   },
-  // This could be 'source-map' or another option to help with debugging.
-  devtool: 'eval',
+  
+   devtool: 'eval',
 };
