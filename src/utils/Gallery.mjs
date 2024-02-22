@@ -1,4 +1,4 @@
-import GalleryData from "../../data/data.json";
+import GalleryData from "../data/data.json";
 import 'animate.css';
 import $ from "jquery";
 
