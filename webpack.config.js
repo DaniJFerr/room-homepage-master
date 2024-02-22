@@ -3,6 +3,7 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetsPlugin = require("css-minimizer-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 var HtmlWebpackPlugin = require("html-webpack-plugin");
 
 let mode = "development";
@@ -18,9 +19,9 @@ module.exports = {
 
   mode: mode,
   output: {
-    filename: "[name].[contenthash].bundle.js",
     path: path.resolve(__dirname, "dist"),
-    assetModuleFilename: "assets/[hash].[ext].[query]",
+    filename: "[name].[contenthash].bundle.js",
+    assetModuleFilename: "assets/[name].[hash][ext][query]",
   },
   optimization: {
     minimizer: [
@@ -39,7 +40,10 @@ module.exports = {
         collapseWhitespace: true,
         removeComments: true
       } 
-   })
+   }),
+  //  new CopyWebpackPlugin({
+  //   patterns: [{ from: 'public', to: 'dist' }],
+  // }),
   ],
   module: {
     rules: [
@@ -80,18 +84,9 @@ module.exports = {
       {
         test: /\.json$/i,
         type: 'asset/resource',
-        generator: {
-          filename: 'data/[name].[hash].[ext]',  
-        },
       },
     ],
   },
-  // devtool: false,
-  // devServer: {
-  //   contentBase: './dist',
-  //   hot: true,
-  // },
-  // Configuration for development server
   devServer: {
     static: {
       directory: path.join(__dirname, 'dist'),
@@ -100,5 +95,5 @@ module.exports = {
     port: 3000,
   },
   
-   devtool: 'eval',
+  devtool: mode === "development" ? 'eval-source-map' : 'source-map',
 };

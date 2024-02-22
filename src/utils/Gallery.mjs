@@ -7,6 +7,7 @@ const contentContainer = $(".shop-content");
 let currentIndex = 0;
 let imageData = [];
 let textContent = [];
+let icons = {};
 
 export default function Gallery() {
 
@@ -29,28 +30,27 @@ export default function Gallery() {
     
 function generateContentHtml(item, index) {
     return $(`
-            <div class="shop"> 
-                <div class="text-content">
-                     <h1 id="shopTitle-${index}" class="shop-title">${item.title}</h1>
-                     <p class="p-shop-content">
-                         ${item.content}
-                     </p>
-                </div>
-            <div class="shop-button">
-                    <button class="button-arrow-img" aria-label="Arrow pointing right">SHOP NOW<img src="../../assets/icon-arrow.svg" loading="lazy"/>
-                    </button>
-                </div>
+        <div class="shop"> 
+            <div class="text-content">
+                 <h1 id="shopTitle-${index}" class="shop-title">${item.title}</h1>
+                 <p class="p-shop-content">
+                     ${item.content}
+                 </p>
             </div>
-            <div class="button-select">
-                <button class="icon-angle-left" aria-label="Previous item">
-                    <img src="../../assets/icon-angle-left.svg"  loading="lazy"/>
+            <div class="shop-button">
+                <button class="button-arrow-img" aria-label="Arrow pointing right">SHOP NOW<img src="${icons.arrow}" loading="lazy"/>
                 </button>
-                <button class="icon-angle-right" aria-label="Next item">
-                    <img src="../../assets/icon-angle-right.svg"  loading="lazy"/>
-                </button>
-            </div>`);
+            </div>
+        </div>
+        <div class="button-select">
+            <button class="icon-angle-right" aria-label="Previous item">
+                <img src="${icons.right}"  loading="lazy"/>
+            </button>
+            <button class="icon-angle-left" aria-label="Next item">
+                <img src="${icons.left}"  loading="lazy"/>
+            </button>
+        </div>`);
 }
-
 
     function displayContent(index) {
         contentContainer.empty();
@@ -78,6 +78,7 @@ function generateContentHtml(item, index) {
                 throw new Error('Failed to fetch data');
             }
             const data = await response.json();
+    
             imageData = data.data.map(item => ({
                 mobile: item.mobile,
                 image: item.image
@@ -85,10 +86,16 @@ function generateContentHtml(item, index) {
             textContent = data.data.map(item => ({
                 title: item.title,
                 content: item.content,
-                icons: item.icons
             }));
+
+            const firstItemWithIcons = data.data.find(item => item.icons);
+            if (firstItemWithIcons) {
+                icons = firstItemWithIcons.icons;
+            }
+            
             createGallery(imageData);
             displayContent(currentIndex);
+
             $(window).on('resize',function(){
                 createGallery(imageData);
             });  
@@ -99,3 +106,4 @@ function generateContentHtml(item, index) {
 
     fetchData();
 }
+
