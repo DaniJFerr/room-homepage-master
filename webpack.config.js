@@ -21,7 +21,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].[contenthash].bundle.js",
-    assetModuleFilename: "assets/[name].[hash][ext][query]",
+    assetModuleFilename: "[name].[hash][ext][query]",
   },
   optimization: {
     minimizer: [
@@ -41,9 +41,9 @@ module.exports = {
         removeComments: true
       } 
    }),
-  //  new CopyWebpackPlugin({
-  //   patterns: [{ from: 'public', to: 'dist' }],
-  // }),
+   new CopyWebpackPlugin({
+    patterns: [{ from: 'public/', to: '' }],
+  }),
   ],
   module: {
     rules: [
@@ -66,7 +66,7 @@ module.exports = {
           {
             loader: MiniCssExtractPlugin.loader,
           },
-          "css-loader", //2. Turns css into commonjs
+          "css-loader", 
           "sass-loader",
         ]
       },
@@ -84,9 +84,13 @@ module.exports = {
       {
         test: /\.json$/i,
         type: 'asset/resource',
+        generator: {
+          filename: 'data/[name][ext]', 
+        },
       },
     ],
   },
+
   devServer: {
     static: {
       directory: path.join(__dirname, 'dist'),
