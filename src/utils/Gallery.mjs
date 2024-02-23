@@ -9,6 +9,7 @@ let imageData = [];
 let textContent = [];
 let icons = {};
 
+
 export default function Gallery() {
 
     function createGallery(data) {
