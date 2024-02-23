@@ -12,13 +12,13 @@
 
   <body>
     <div class="container">
-      <div role="navigation" class="nav-column">
-        <button class="hamburger hamburger--slider" type="button">
+      <div role="navigation" class="nav-column" aria-label="main navigation">
+        <button class="hamburger hamburger--slider" type="button" aria-controls="toggle menu" aria-expanded="false" aria-label="toggle navegation">
           <span class="hamburger-box">
             <span class="hamburger-inner"></span>
           </span>
         </button>  
-        <nav id="navigation" class="navbar" aria-label="Main navigation">                     
+        <nav id="navigation" class="navbar" aria-label="navigation">                     
           <img
           loading="lazy"
           src="../public/assets/logo.svg"
@@ -42,23 +42,23 @@
         </nav>
       </div>
 
-      <div role="banner" class="main-header">
-            <header class="hero-image">
+      <header role="banner" class="main-header">
+            <div class="hero-image"  role="banner">
              
-            </header>
+            </div>
           <!-- <main class="main-content"> -->
-            <section aria-label="shopTitle" class="shop-content">
+            <section aria-label="Highlighted Products" class="shop-content">
   
             </section>
           <!-- </main> -->
-      </div>
-      <aside class="botton-section">
+      </header>
+      <aside class="botton-section" aria-label="addicional Information">
           <div class="column-5">
             <img
               loading="lazy"
               src="../public/assets/image-about-dark.jpg"
               class="image-about-dark"
-              alt="image about dark"
+              alt="Dark themed room"
             />
           </div>
           <div class="column-6">
@@ -80,7 +80,7 @@
               loading="lazy"
               src="../public/assets/image-about-light.jpg"
               class="image-about-light"
-              alt="image about light"
+              alt="Light themed room"
             />
           </div>
       </aside>
